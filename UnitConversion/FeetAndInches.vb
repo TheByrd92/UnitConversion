@@ -70,6 +70,7 @@ Public Class FeetAndInches
         Return toReturn
     End Function
 
+    Public Const STANDARD_ARCH_INPUT = "(\d+\'( |-)(\d+|\d+\/\d+)(( |-)\d+\/\d+""|"")|\d+""$|\d+\'$)"
     ''' <summary>
     ''' Takes in a string and matches it with a regular expression to ensure that it meets these requirements.
     ''' <para>
@@ -131,7 +132,7 @@ Public Class FeetAndInches
         'Dim inRx = New Regex("(\u002D\d+)|(\d+\s*\u0022)")
         '(?!^\d+\s*$)(?!^\d+\s+\d+(\s+|$|[""]|\u002D).*$)(^|\s)\d+([""]|\u002D|$|\s)
         '(?!^)(\d+)(?!\")(?!\/)((?=\-)|(?=\s))(?!$)
-        Dim inRx = New Regex("((\d+)(?!\"")(?!\/)((?=\-)|(?=\s))(?!$))|^(\d+\"")$")
+        Dim inRx = New Regex("((?<!\/|\/\d\d|\/\d)\d+(?!\/|\')([""]|[ ])(?![Gg][Aa]))")
         'Regex for sixteenths
         Dim sxRx = New Regex("(?=.*)\d+([/]|[\\])[1-9]+(?=\s*)")
         'Dim sxRx = New Regex("\d+(\u002F|\u005C)[1-9]+[\d]*")
