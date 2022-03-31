@@ -134,7 +134,7 @@ Public Class FeetAndInches
         '(?!^)(\d+)(?!\")(?!\/)((?=\-)|(?=\s))(?!$)
         Dim inRx = New Regex("((?<!\/|\/\d\d|\/\d)\d+(?!\/|\')([""]|[ ])(?![Gg][Aa]))")
         'Regex for sixteenths
-        Dim sxRx = New Regex("(?=.*)\d+([/]|[\\])[1-9]+(?=\s*)")
+        Dim sxRx = New Regex("(?=.*)\d+([/]|[\\])[0-9]+(?=\s*)")
         'Dim sxRx = New Regex("\d+(\u002F|\u005C)[1-9]+[\d]*")
         'Regex for decimal
         Dim dcRx = New Regex("^\d*\u002E\d*$")
