@@ -170,7 +170,7 @@ Public Class FeetAndInches
     ''' <returns>A string array that contains a imperial foot index 0, imperial inches at index 1, and imperial fraction at index 2. It returns blank 
     ''' if it's NOT <see cref="GoodInput(Object)"/></returns>
     Public Function split_Imperial(ByVal input As Object) As String()
-        Dim toReturn(3) As String
+        Dim toReturn(2) As String
         If (Not GoodInput(input)) Then
             toReturn(0) = ""
             toReturn(1) = ""
