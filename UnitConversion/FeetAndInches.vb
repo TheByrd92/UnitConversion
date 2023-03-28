@@ -163,6 +163,38 @@ Public Class FeetAndInches
         Return toReturn
     End Function
 
+    ''' <summary>
+    ''' This is to get a split out imperial length.
+    ''' </summary>
+    ''' <param name="input">The full imperial length.</param>
+    ''' <returns>A string array that contains a imperial foot index 0, imperial inches at index 1, and imperial fraction at index 2. It returns blank 
+    ''' if it's NOT <see cref="GoodInput(Object)"/></returns>
+    Public Function split_Imperial(ByVal input As Object) As String()
+        Dim toReturn(3) As String
+        If (Not GoodInput(input)) Then
+            toReturn(0) = ""
+            toReturn(1) = ""
+            toReturn(2) = ""
+            Return toReturn
+        End If
+
+        Dim m As Match
+        'Feet
+        Dim ftRx = New Regex("^\d+(\'|\-|\'\-|$|\s)\s*(?=$|(\d+\s*))(?!\d+([\/]|[\\])\d+\s*)")
+        m = ftRx.Match(0)
+        toReturn(0) = If(m.Success, m.ToString(), "")
+        'Inches
+        Dim inRx = New Regex("((?<!\/|\/\d\d|\/\d)\d+(?!\/|\')([""]|[ ])(?![Gg][Aa]))")
+        m = inRx.Match(1)
+        toReturn(1) = If(m.Success, m.ToString(), "")
+        'Fraction
+        Dim sxRx = New Regex("(?=.*)\d+([/]|[\\])[0-9]+(?=\s*)")
+        m = sxRx.Match(2)
+        toReturn(2) = If(m.Success, m.ToString(), "")
+
+        Return toReturn
+    End Function
+
     'End InputNum
     ''' <summary>
     ''' Converts a decimal in inches to feet and inches. Into a readable format for an external text file for the shop to cut the sized plates.
