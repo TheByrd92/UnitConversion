@@ -182,15 +182,15 @@ Public Class FeetAndInches
         'Feet
         Dim ftRx = New Regex("^\d+(\'|\-|\'\-|$|\s)\s*(?=$|(\d+\s*))(?!\d+([\/]|[\\])\d+\s*)")
         m = ftRx.Match(input)
-        toReturn(0) = If(m.Success, m.ToString().Replace("-", "").Trim(), "")
+        toReturn(0) = If(m.Success, m.ToString().Replace("'", "").Replace("-", "").Trim(), "")
         'Inches
         Dim inRx = New Regex("((?<!\/|\/\d\d|\/\d)\d+(?!\/|\')([""]|[ ])(?![Gg][Aa]))")
         m = inRx.Match(input)
-        toReturn(1) = If(m.Success, m.ToString().Replace("-", "").Trim(), "")
+        toReturn(1) = If(m.Success, m.ToString().Replace("""", "").Replace("-", "").Trim(), "")
         'Fraction
         Dim sxRx = New Regex("(?=.*)\d+([/]|[\\])[0-9]+(?=\s*)")
         m = sxRx.Match(input)
-        toReturn(2) = If(m.Success, m.ToString().Trim(), "")
+        toReturn(2) = If(m.Success, m.ToString().Replace("""", "").Trim(), "")
 
         Return toReturn
     End Function
