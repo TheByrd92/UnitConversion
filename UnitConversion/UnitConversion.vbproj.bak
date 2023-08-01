@@ -1,16 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyTitle>UnitConversion</AssemblyTitle>
-    <Company>Alliance Steel Inc.</Company>
+    <Company>Hewlett-Packard Company</Company>
     <Product>UnitConversion</Product>
-    <Copyright>Copyright © Alliance Steel Inc.</Copyright>
-	<UseWindowsForms>true</UseWindowsForms>
-	<MyType>Windows</MyType>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <Copyright>Copyright © Hewlett-Packard Company 2018</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DocumentationFile>UnitConversion.xml</DocumentationFile>
@@ -59,4 +57,7 @@
   <ItemGroup>
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
+	<PropertyGroup>
+		<MyType>Empty</MyType>
+	</PropertyGroup>
 </Project>
